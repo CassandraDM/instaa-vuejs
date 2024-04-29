@@ -30,10 +30,12 @@
     </div>
     <script src="https://unpkg.com/vue@3/dist/vue.global.js"></script>
     <script type="module">
+        import { FormComponent } from "./components/FormComponent.js"
         import { post } from "./post.js"
         const app= Vue.createApp({
             components: {
-                "posts": post
+                "posts": post,
+                "form-component": FormComponent
             },
             data() {
                 return {
