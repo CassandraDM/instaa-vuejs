@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        .post-list{
+            display: flex;
+            flex-direction: column;
+            gap: 20px;
+        }
+        .post-container{
+            background-color: aliceblue;
+            max-width: 500px;
+            padding: 10px;
+            border-radius: 8px;
+        }
+    </style>
+</head>
+<body>
+    <div id="app">
+        <div class="post-list">
+            <div class="post-container" v-for="(post, index) in postList" >
+                <posts :id="post.id" :image="post.image" :titre="post.titre" :contenu="post.contenu" :nbLike="post.nbLike">
+
+                </posts>
+            </div>
+        </div>
+    </div>
+    <script src="https://unpkg.com/vue@3/dist/vue.global.js"></script>
+    <script type="module">
+        import { post } from "./post.js"
+        const app= Vue.createApp({
+            components: {
+                "posts": post
+            },
+            data() {
+                return {
+                    postList:[
+                        {
+                            id:1,
+                            titre: "Post1",
+                            contenu: "Lorem ipsum dolor sit amet consectetur adipisicing elit. Eligendi molestias, perferendis animi quibusdam expedita dolorem. Deserunt libero eius doloribus vitae, ipsam laborum numquam maiores totam molestias ratione consectetur provident nostrum!",
+                            image: "https://picsum.photos/id/1/200/300",
+                            nbLike: 0,
+                        },
+                        {
+                            id:2,
+                            titre: "Post2",
+                            contenu:"Lorem ipsum dolor sit amet consectetur adipisicing elit. Eligendi molestias, perferendis animi quibusdam expedita dolorem. Deserunt libero eius doloribus vitae, ipsam laborum numquam maiores totam molestias ratione consectetur provident nostrum!",
+                            image:"https://picsum.photos/id/1/200/300",
+                            nbLike: 0,
+                        },
+                        {
+                            id:3,
+                            titre: "Post3",
+                            contenu:"Lorem ipsum dolor sit amet consectetur adipisicing elit. Eligendi molestias, perferendis animi quibusdam expedita dolorem. Deserunt libero eius doloribus vitae, ipsam laborum numquam maiores totam molestias ratione consectetur provident nostrum!",
+                            image:"https://picsum.photos/id/1/200/300",
+                            nbLike: 0,
+                        }
+                    ]
+                }
+            },
+    
+        }).mount("#app")
+    </script>
+</body>
+</html>
+
